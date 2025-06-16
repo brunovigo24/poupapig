@@ -1,7 +1,7 @@
 import { authRoutes } from './routes/authRoutes';
 import { autenticarJWT } from './middlewares/authMiddleware';
 // import webhookRoutes from './routs/webhookRoutes';
-// import evolutionRoutes from './routes/evolutionRoutes';
+import evolutionRoutes from './routes/evolutionRoutes';
 import express from 'express';
 // import cors from 'cors';
 import statusRoutes from './routes/statusRoutes';
@@ -16,7 +16,7 @@ app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 // app.use('/webhook', webhookRoutes);
-// app.use('/api/evolution', autenticarJWT, evolutionRoutes);
+app.use('/api/evolution', autenticarJWT, evolutionRoutes);
 app.use('/', statusRoutes);
 
 
