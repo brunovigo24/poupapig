@@ -1,9 +1,9 @@
-// import { authRoutes } from './routes/authRoutes';
-// import { autenticarJWT } from './middlewares/authMiddleware';
+import { authRoutes } from './routes/authRoutes';
+import { autenticarJWT } from './middlewares/authMiddleware';
 // import webhookRoutes from './routs/webhookRoutes';
 // import evolutionRoutes from './routes/evolutionRoutes';
 import express from 'express';
-import cors from 'cors';
+// import cors from 'cors';
 import dotenv from 'dotenv';
 import statusRoutes from './routes/statusRoutes';
 dotenv.config();
@@ -16,7 +16,7 @@ app.use(express.json());
 //   credentials: true
 // }));
 
-// app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRoutes);
 // app.use('/webhook', webhookRoutes);
 // app.use('/api/evolution', autenticarJWT, evolutionRoutes);
 app.use('/', statusRoutes);
