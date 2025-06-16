@@ -1,14 +1,9 @@
-import express from 'express';
-import cors from 'cors';
-import statusRoutes from './routes/statusRoutes';
+import dotenv from 'dotenv';
+dotenv.config();
 
-const app = express();
+import app from './app';
+
 const PORT = process.env.PORT || 3000;
-
-app.use(cors());
-app.use(express.json());
-
-app.use('/', statusRoutes);
 
 app.listen(PORT, () => {
   console.log(`🚀 Servidor rodando na porta ${PORT}`);

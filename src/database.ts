@@ -1,14 +1,18 @@
-import mysql from 'mysql2/promise';
+import { createClient } from '@supabase/supabase-js';
 
-const pool = mysql.createPool({
-  host: process.env.DB_HOST || '172.17.0.1',
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || '123',
-  database: process.env.DB_DATABASE || 'automacaobeta',
-  port: process.env.DB_PORT ? Number(process.env.DB_PORT) : 3306,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0
-});
+const supabaseUrl = process.env.SUPABASE_URL || '';
+const supabaseKey = process.env.SUPABASE_ANON_KEY || '';
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 
-export default pool;
+if (!supabaseUrl || !supabaseKey) {
+  throw new Error('SUPABASE_URL e SUPABASE_ANON_KEY devem ser definidos nas variáveis de ambiente');
+}
+
+// Cliente padrão para operações do usuário (com RLS)
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+// Cliente para operações da LLM (bypassa RLS)
+const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey);
+
+export default supabase;
+export { supabaseAdmin };

@@ -1,16 +1,25 @@
-import db from '../database';
-import { RowDataPacket } from 'mysql2';
+import supabase from '../database';
 
-interface User extends RowDataPacket {
+interface User {
   id: number;
   username: string;
   password: string;
 }
 
 export const findByUsername = async (username: string): Promise<User | null> => {
-  const [rows] = await db.query<User[]>(
-    'SELECT * FROM users WHERE username = ? LIMIT 1',
-    [username]
-  );
-  return rows.length > 0 ? rows[0] : null;
+  const { data, error } = await supabase
+    .from('users')
+    .select('*')
+    .eq('username', username)
+    .single();
+
+  if (error) {
+    if (error.code === 'PGRST116') {
+      // Nenhum registro encontrado
+      return null;
+    }
+    throw new Error(`Erro ao buscar usuário: ${error.message}`);
+  }
+
+  return data as User;
 };
