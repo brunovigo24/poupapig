@@ -18,4 +18,4 @@ Este projeto está licenciado sob a Licença Apache 2.0 - veja o arquivo [LICENS
 
 ---
 
-**Desenvolvido por [Bruno Vigo](https://www.linkedin.com/in/bruno-vigo-506026206/).** 
+**Desenvolvido com ❤️ por [Bruno Vigo](https://www.linkedin.com/in/bruno-vigo-506026206/) para simplificar o controle financeiro pessoal.** 
