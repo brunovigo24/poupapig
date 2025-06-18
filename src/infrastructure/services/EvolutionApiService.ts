@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { buscarInstanciaAtiva, buscarInstanciaPorNome } from './evolutionInstanceService';
+import { buscarInstanciaAtiva, buscarInstanciaPorNome } from './EvolutionInstanceService';
 
 const API_URL = process.env.EVOLUTION_API_URL;
 

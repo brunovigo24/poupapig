@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
-import * as userService from '../services/userService';
+import * as userService from '../../infrastructure/services/UserService';
 
 export const login = async (req: Request, res: Response): Promise<void> => {
   const { username, password } = req.body;

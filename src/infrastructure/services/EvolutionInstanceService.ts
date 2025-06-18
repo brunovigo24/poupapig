@@ -1,5 +1,5 @@
-import { supabaseAdmin } from '../database';
-import { EvolutionInstance } from '../interfaces/EvolutionInstance';
+import { supabaseAdmin } from '../../infrastructure/database/SupabaseClient';
+import { EvolutionInstance } from '../../domain/interfaces/EvolutionInstance';
 
 /**
  * Salva uma nova instância no banco de dados

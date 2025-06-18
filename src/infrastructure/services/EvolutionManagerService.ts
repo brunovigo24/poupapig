@@ -1,5 +1,5 @@
-import { salvarInstancia, removerInstancia } from './evolutionInstanceService';
-import { EvolutionCreateResponse } from '../interfaces/EvolutionInstance';
+import { salvarInstancia, removerInstancia } from './EvolutionInstanceService';
+import { EvolutionCreateResponse } from '../../domain/interfaces/EvolutionInstance';
 
 const EVOLUTION_API_URL = process.env.EVOLUTION_API_URL || '';
 const EVOLUTION_API_KEY = process.env.EVOLUTION_API_KEY || '';

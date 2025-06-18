@@ -1,4 +1,4 @@
-import supabase from '../database';
+import supabase from '../../infrastructure/database/SupabaseClient';
 
 interface User {
   id: number;

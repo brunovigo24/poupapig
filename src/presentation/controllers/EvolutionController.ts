@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import * as evolutionManager from '../services/evolutionManagerService';
+import * as evolutionManager from '../../infrastructure/services/EvolutionManagerService';
 
 export const criarInstancia = async (req: Request, res: Response) => {
   const { nome, numero } = req.body;
